@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 @main
-struct HabitTrackerAppApp: App {
+struct HabitTrackerApp: App {
+    // Verknüpfe den AppDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HabitListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
